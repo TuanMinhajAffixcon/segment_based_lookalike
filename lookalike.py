@@ -223,7 +223,7 @@ else:
     st.write(f':orange[**Master Data points selected Demographics-{len(df_master_filter)}**]')
 
     with st.expander(":red[**Filtered Master Data Table with selected demographics**]"):
-        st.write((df_master_filter))
+        st.write(df_master_filter[['age_range','Gender','Income','Concatenated']].head(5))
         csv=df_master_filter.to_csv().encode('utf-8')
         st.download_button("Download filtered Master table ",data=csv, file_name="filtered master data.csv")
 
@@ -241,13 +241,13 @@ else:
         df_master_filter=df_master_filter.sort_values(by=['distance_to_center'])
         st.markdown(':blue[**Considering All Points**]')
         with st.expander(":red[**Click to expand distance to each points**]"):
-            st.write((df_master_filter))
+            st.write(df_master_filter[['age_range','Gender','Income','Concatenated']].head(5))
             required_data_percentage=st.select_slider(':blue[**Select required percentage from master data**]',([i for i in range(10, 110, 10)]))
             slicing_data=int(len(df_master_filter)*int(required_data_percentage)/100)
             index_list=df_master_filter.index.tolist()[:slicing_data]
             filtered_df = df_master_filter.loc[index_list]
             st.markdown(":blue[**Select Filtered Master Data**]")
-            st.write(filtered_df)
+            st.write(filtered_df[['age_range','Gender','Income','Concatenated']].head(5))
             csv=df_master_filter.to_csv().encode('utf-8')
             st.download_button("Download Select Filtered Master Data ",data=csv, file_name="Filtered master data.csv")
             def demographics_filtered():
