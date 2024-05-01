@@ -95,18 +95,18 @@ sentences_master = [s.replace("|", " ") for s in sentences_master]
 sentences_master = [s.strip() for s in sentences_master if s.strip()]
 # st.write(sentences_master)
 
-nlp = spacy.load("en_core_web_sm")
-stop_words = nlp.Defaults.stop_words
-punctuations = string.punctuation
-def spacy_tokenizer(sentence):
-    # Creating our token object, which is used to create documents with linguistic annotations.
-    doc = nlp(sentence)
-    # Lemmatizing each token and converting each token into lowercase
-    mytokens = [ word.lemma_.lower().strip() for word in doc ]
-    # Removing stop words
-    mytokens = [word for word in mytokens if word not in stop_words and word not in punctuations]
-    sentence = " ".join(mytokens)
-    return sentence
+# nlp = spacy.load("en_core_web_sm")
+# stop_words = nlp.Defaults.stop_words
+# punctuations = string.punctuation
+# def spacy_tokenizer(sentence):
+#     # Creating our token object, which is used to create documents with linguistic annotations.
+#     doc = nlp(sentence)
+#     # Lemmatizing each token and converting each token into lowercase
+#     mytokens = [ word.lemma_.lower().strip() for word in doc ]
+#     # Removing stop words
+#     mytokens = [word for word in mytokens if word not in stop_words and word not in punctuations]
+#     sentence = " ".join(mytokens)
+#     return sentence
 
 tsne_df_master=joblib.load('tsne_df_master')
 
