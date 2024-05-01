@@ -131,7 +131,7 @@ silhouette_scores.columns=['No_of_Clusters','silhouette_score']
 silhouette_scores.set_index('No_of_Clusters',inplace=True)
 # st.write(silhouette_scores)
 
-clusters=st.text_input(":blue[**Enter No of Clusters**]",value=5)
+clusters=st.text_input(":blue[**Enter No of Clusters**]",value=2)
 if clusters =="":
     st.warning("Enter how many Clusters")
 else:
